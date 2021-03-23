@@ -1,0 +1,8 @@
+<select class="form-control" id="sort-select" (change)="filtersChange($event)">
+  <option value="date:descending" [selected]="sortBy + ':' + sortDirection === 'date:descending'">Date (desc)</option>
+  <option value="date:ascending" [selected]="sortBy + ':' + sortDirection === 'date:ascending'">Date (asc)</option>
+  <option value="from:descending" [selected]="sortBy + ':' + sortDirection === 'from:descending'">From (desc)</option>
+  <option value="from:ascending" [selected]="sortBy + ':' + sortDirection === 'from:ascending'">From (asc)</option>
+  <option value="subject:descending" [selected]="sortBy + ':' + sortDirection === 'subject:descending'">Subject (desc)</option>
+  <option value="subject:ascending" [selected]="sortBy + ':' + sortDirection === 'subject:ascending'">Subject (asc)</option>
+</select>

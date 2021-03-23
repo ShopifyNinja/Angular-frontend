@@ -1,0 +1,34 @@
+image: node:10.13.0
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+  - npm install --save @angular/material @angular/cdk
+  - npm install
+  - npm link @angular/cli
+  - npm run build-development
+  artifacts:
+   expire_in: 1 hours
+   paths:
+    - dist/
+
+deploy_staging:
+  stage: deploy
+  image:  mcr.microsoft.com/dotnet/core/sdk:3.1
+  dependencies:
+   - build
+  script:
+   - apt-get update && apt-get -y install zip
+   - curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+   - zip -r dist.zip ./dist
+   - az login --service-principal --username "fc0077b7-ef47-48a6-8176-f3e86169a194" --password "Digiclarity@3213" --tenant "ddc9d650-4c18-49ea-b451-3170131fe383"
+   - az webapp deployment source config-zip -n "ushealth-frontend" -g "ushealth" --src dist.zip
+  environment:
+    name: staging
+    url: https://ushealth-frontend.azurewebsites.net
+  only:
+  - inbox-redesign

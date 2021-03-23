@@ -1,0 +1,162 @@
+<div class="transparent-card">
+  <div class="d-flex flex-column align-items-center text-center h-100">
+    <div class="d-flex flex-column w-100 h-100 inbox-container">
+      <div class="sticky-header inbox-header">
+        <div class="mt-5 mx-5">
+          <h1 class="mb-6 text-left inbox-title">Secure Message Center</h1>
+
+          <div class="message-boxes-panel">
+            <mat-tab-group
+              class="remove-border-bottom"
+              (selectedTabChange)="tabChanged($event)"
+            >
+              <mat-tab label="Inbox"></mat-tab>
+              <mat-tab label="Drafts"></mat-tab>
+              <mat-tab label="Sent"></mat-tab>
+              <mat-tab label="Trash"></mat-tab>
+            </mat-tab-group>
+            <button
+              id="toggle-filter-button"
+              type="button"
+              class="btn material-icons p-0 mt-0"
+              (click)="toggleFilters()"
+            >
+              {{showFilter ? 'expand_more' : 'expand_less'}}
+            </button>
+          </div>
+        </div>
+        <div class="d-flex flex-row pr-9 mx-5" *ngIf="showFilter">
+          <div
+            class="filter-sort-panel d-flex"
+            *ngIf="showFilter"
+          >
+            <div class="ushg-circle-check">
+              <input
+                class="form-check-input fa fa-check"
+                type="checkbox"
+                value=""
+                id="inbox-item-checkbox-all"
+                (change)="toggleSelectAll()"
+              />
+              <label
+                for="inbox-item-checkbox-all"
+                class="mb-0"
+              >
+                {{ selectAllToggle ? "Unselect All" : "Select All" }}
+              </label>
+            </div>
+            <button
+              type="button"
+              class="btn material-icons p-0 mt-0"
+              (click)="delete()"
+            >
+              delete_outline
+            </button>
+            <button
+              type="button"
+              class="btn material-icons p-0 mt-0"
+              (click)="this.toggleBackdrop(); this.showSortPanel = !this.showSortPanel"
+            >
+              filter_list
+            </button>
+            <button
+              id="toggle-sort-direction"
+              type="button"
+              class="btn material-icons p-0 mt-0"
+              (click)="toggleSortDirection()"
+            >
+              sync_alt
+            </button>
+          </div>
+        </div>
+        <div class="sort-panel" *ngIf="this.showFilter && this.showSortPanel">
+          <div class="sort-list">
+            <div class="sort-option" (click)="setSortBy('unread')">
+              <span class="material-icons-outlined">mark_email_unread</span>
+              Unread
+            </div>
+            <div class="sort-option" (click)="setSortBy('from')">
+              <span class="material-icons">person_outline</span>
+              From
+            </div>
+            <div class="sort-option" (click)="setSortBy('attachments')">
+              <span class="material-icons">attach_file</span>
+              Attachments
+            </div>
+            <div class="sort-option" (click)="setSortBy('subject')">
+              <span class="material-icons">subject</span>
+              Subject
+            </div>
+            <div class="sort-option" (click)="setSortBy('date')">
+              <span class="material-icons-outlined">calendar_today</span>
+              Date
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="search-container" class="w-100" *ngIf="this.isSearchVisible">
+        <div class="search-bar">
+          <span class="material-icons material-icons-outlined">search</span>
+          <input
+            type="text"
+            class="form-control"
+            id="search-input"
+            placeholder="Search mail"
+            [formControl]="queryControl"
+            (click)="onSearchFocus()"
+            autocomplete="off"
+          />
+          <span class="material-icons material-icons-outlined">mic_none</span>
+        </div>
+      </div>
+
+      <div class="inbox-content" [ngClass]="{backdrop: this.backdrop}" (click)="hideSortPanel()">
+        <div class="">
+          <div label="Inbox" *ngIf="curSelectedTab == 0">
+            <app-base-section
+              [messagesService]="inboxMessagesService"
+              type="inbox"
+              [showSelect]="showFilter"
+            ></app-base-section>
+          </div>
+
+          <div label="Inbox" *ngIf="curSelectedTab == 1">
+            <app-base-section
+              [messagesService]="draftMessagesService"
+              type="draft"
+              [showSelect]="showFilter"
+            ></app-base-section>
+          </div>
+
+          <div label="Inbox" *ngIf="curSelectedTab == 2">
+            <app-base-section
+              [messagesService]="sentMessagesService"
+              type="sent"
+              [showSelect]="showFilter"
+            ></app-base-section>
+          </div>
+
+          <div label="Inbox" *ngIf="curSelectedTab == 3">
+            <app-base-section
+              [messagesService]="deletedMessagesService"
+              type="deleted"
+              [showSelect]="showFilter"
+            ></app-base-section>
+          </div>
+        </div>
+
+        <div id="bottom-panel">
+          <button
+            id="compose-btn"
+            class="btn btn-primary"
+            (click)="newMessageModal()"
+          >
+            <span class="material-icons">edit</span>
+            <span class="compose-text">Compose</span>
+          </button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

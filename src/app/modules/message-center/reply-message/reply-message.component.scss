@@ -1,0 +1,138 @@
+@import '/src/assets/sass/ushg-global';
+
+:host {
+  position: relative;
+}
+
+.reply-message-modal,
+.reply-message-modal .modal-dialog,
+.reply-message-modal .modal-dialog .modal-content {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .button-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    .material-icons,
+    .material-icons-outlined {
+      color: rgba(0, 34, 80, 0.7);
+      padding-top: 0;
+    }
+    .material-icons-outlined{
+      font-size: 22px!important;
+      margin-top: 3px;
+    }
+    .material-icons{
+      font-size: 27px!important;
+    }
+
+    button {
+      padding-right: 0;
+      padding-top: 0;
+    }
+    .submit-icon-active {
+      color: $ushg-royal-blue !important;
+    }
+    .submit-icon-inactive{
+      color: #BDBDBD;
+    }
+  }
+
+  .message-title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
+    color: #1F2432;
+    margin: 0;
+    padding-left: 0.7em;
+    padding-right: 1em;
+  }
+
+  .message-text {
+    margin: 0;
+  }
+
+  .message-input,
+  .message-text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1F2432;
+
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .message-input {
+    padding-top: 0;
+    resize: none;
+    border: none;
+    text-align: left;
+  }
+
+  hr {
+    margin-bottom: 8px;
+    margin-top: 0;
+    background-color: rgba(208, 220, 226, 0.6);
+  }
+}
+
+.files-container {
+  margin-top: 8px;
+
+  .file-row {
+    border-top: 1px solid #D0DCE2;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    align-items: center;
+
+    :last-child {
+      border-bottom: 0;
+    }
+
+    .remove-file-btn {
+
+    }
+
+    .file-icon {
+      color: $ushg-dark-red;
+    }
+
+    .left-file-section,
+    .right-file-section {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.submit-icon {
+  color: $ushg-royal-blue;
+}
+
+.inactive-text{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  color: #80949D;
+}

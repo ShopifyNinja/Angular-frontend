@@ -1,0 +1,31 @@
+.logo {
+  display: flex;
+  justify-content: flex-begin;
+  max-height: 50px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  width: 100px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+  }
+
+  .aside-minimize:not(.aside-minimize-hover) & {
+    img {
+      display: none;
+    }
+  }
+}
+
+:host(.big) {
+  .logo {
+    width: 150px;
+    padding: 5px 0;
+
+    img {
+      width: 100%;
+    }
+  }
+}

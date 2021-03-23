@@ -1,0 +1,55 @@
+<div class="d-flex flex-column align-items-center text-center h-100">
+  <div class="d-flex flex-column w-100">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="this.activeModal.close(this.form.value.query)"
+    >
+      <div class="pb-12 m-0 w-100 search-container">
+        <div class="search-bar">
+          <span
+            class="material-icons material-icons-outlined btn-search-action"
+            (click)="this.activeModal.close(this.form.value.query)"
+            *ngIf="form.value.query.length > 0"
+            >search</span
+          >
+          <span
+            class="material-icons material-icons-outlined btn-search-action"
+            (click)="activeModal.close('')"
+            *ngIf="form.value.query.length === 0"
+          >arrow_back_ios</span>
+          <input
+            type="text"
+            class="form-control"
+            id="search-input"
+            placeholder="Search mail"
+            [formControl]="queryControl"
+            formControlName="query"
+            autocomplete="off"
+          />
+          <span
+            class="material-icons material-icons-outlined btn-search-action"
+            *ngIf="form.value.query.length > 0"
+            (click)="form.controls.query.setValue('')"
+          >close</span>
+          <span
+            class="material-icons material-icons-outlined btn-search-action"
+            *ngIf="form.value.query.length === 0"
+          >mic_none</span>
+        </div>
+      </div>
+    </form>
+    <div id="search-suggestions">
+      <div
+        *ngFor="let suggestion of suggestions"
+        class="card text-left d-flex pr-3 pl-5"
+      >
+        <div
+          class="suggestion-row"
+          (click)="this.activeModal.close(suggestion.value)"
+        >
+          <span class="suggestion-text" [innerHTML]="suggestion.text"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

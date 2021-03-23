@@ -1,0 +1,19 @@
+@import '/src/assets/sass/ushg-global';
+
+.button-container {
+  position: fixed;
+  bottom: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100vw;
+  padding-bottom: 2em;
+
+  a.btn, button {
+    background-color: $ushg-grey-darkest;
+  }
+}
+
+h1 {
+  text-align: left;
+  width: 100%;
+}

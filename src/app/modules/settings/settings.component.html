@@ -1,0 +1,100 @@
+<div class="settings-header">
+  <span
+    class="back-button material-icons flex-1"
+    (click)="activeModal.dismiss('Cross click')"
+    >chevron_left</span
+  >
+  <h1>Settings</h1>
+  <div class="flex-1"></div>
+</div>
+
+<div class="settings-menu">
+  <div class="menu-section">
+    <h3>Member Center</h3>
+    <ng-container *ngIf="this.authService.userIsProspect()">
+      <ul>
+        <li><span class="material-icons">info_outline</span><div>About</div></li>
+        <li><span class="material-icons">card_membership</span>Member Services</li>
+        <li><span class="material-icons">chrome_reader_mode</span>Products</li>
+        <li><span class="material-icons">map</span>Markets Served</li>
+        <li><span class="material-icons">group</span>Mission of HOPE</li>
+      </ul>
+    </ng-container>
+    <ul *ngIf="this.authService.userIsMember()">
+      <li><span class="material-icons">home</span><div>Home</div></li>
+      <li><span class="material-icons">map</span>Map</li>
+      <li><span class="material-icons">check</span>Claims</li>
+      <li><span class="material-icons">folder</span>Documents</li>
+      <li><span class="material-icons">star_border</span>Premium</li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h3>Activity</h3>
+    <ul>
+      <li (click)="activeModal.dismiss('Cross click')"><span class="material-icons">chat</span>Secure Message Center</li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h3>Assistance</h3>
+    <ul>
+      <li><span class="material-icons">phone</span>Contact Us</li>
+      <li><span class="material-icons">help_outline</span>Help</li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h3>Account</h3>
+    <ul>
+      <li>
+        <ul>
+          <div class="list-section-toggle" (click)="toggleSublist($event)">
+            <div class="list-section-toggle-text">
+              <span class="material-icons">account_circle</span>
+              Update Account
+              <span
+                *ngIf="!this.authService.userHasPassword()"
+                class="error-icon material-icons"
+                [hidden]="showListActive">
+                error
+              </span>
+            </div>
+            <div class="material-icons">
+              {{ showListActive ? 'expand_more' : 'chevron_right' }}
+            </div>
+          </div>
+          <li [hidden]="!showListActive">
+            <span class="material-icons">email</span>
+            Update Email
+          </li>
+          <li
+            *ngIf="!this.authService.userHasPassword()"
+            [hidden]="!showListActive"
+            (click)="
+              goToPage('message-center/inbox');
+              activeModal.dismiss('Cross click');
+            "
+          >
+            <span class="material-icons">lock</span>
+            Create a Password
+            <span class="error-icon material-icons">error</span>
+          </li>
+          <li
+            *ngIf="this.authService.userHasPassword()"
+            [hidden]="!showListActive"
+          >
+            <span class="material-icons">lock</span>
+            Change Password
+          </li>
+          <li [hidden]="!showListActive">
+            <span class="material-icons">phone</span>Update Phone
+          </li>
+        </ul>
+      </li>
+      <li (click)="logout()">
+        <span class="material-icons">logout</span>Log out
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="transparent-card">
+  <div class="d-flex flex-column align-items-center text-left">
+
+    <h1 class="mb-9 mt-9 text-primary">
+      {{title}}
+    </h1>
+
+    <h2 class="mb-10">
+      {{message}}
+    </h2>
+
+    <div class="button-container">
+      <button
+        class="btn btn-primary btn-block-xs-only text-uppercase"
+        routerLink="/quote/landing"
+        *ngIf="type!=='AccountExists'"
+      >
+        Close
+      </button>
+      <a
+        class="btn btn-primary btn-block-xs-only text-uppercase"
+        [href]="this.authService.getLoginUrl()"
+        *ngIf="type==='AccountExists'"
+      >
+        Login
+      </a>
+    </div>
+  </div>
+</div>

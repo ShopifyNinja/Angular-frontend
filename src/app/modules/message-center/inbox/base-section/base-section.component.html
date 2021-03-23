@@ -1,0 +1,31 @@
+<div>
+  <app-inbox-actions
+    (selectAll)="onSelectAll($event)"
+    (delete)="onDelete()"
+    (restore)="onRestore()"
+    [deleteEnabled]="deleteEnabled"
+    [withRestore]="type === 'deleted'"
+  ></app-inbox-actions>
+
+  <app-inbox-item
+    *ngFor="let m of messages$ | async"
+    [message]="m"
+    (messageSelect)="onSelect($event)"
+    [selected]="isSelected(m.messageId)"
+    [showSelect]="showSelect"
+  ></app-inbox-item>
+
+  <!-- <div *ngIf="!initialLoad">
+    <facebook-content-loader
+      *ngFor="let i of [].constructor(5)"
+    ></facebook-content-loader>
+  </div>
+ -->
+  <div class="no-messages-container mt-3 mx-5">
+    <i *ngIf="(messages$ | async).length === 0" class="no-messages"
+      >No messages</i
+    >
+  </div>
+
+  <!-- <app-pagination [type]="type"></app-pagination> -->
+</div>

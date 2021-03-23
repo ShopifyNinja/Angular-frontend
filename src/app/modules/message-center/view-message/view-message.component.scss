@@ -1,0 +1,157 @@
+@import "/src/assets/sass/ushg-global";
+
+:host {
+  position: relative;
+}
+
+.view-message-modal,
+.view-message-modal .modal-dialog,
+.view-message-modal .modal-dialog .modal-content {
+  min-height: 100vh;
+  width: 100%;
+
+  .button-bar {
+
+    .material-icons,
+    .material-icons-outlined{
+      color: rgba(0, 34, 80, 0.7);
+      padding-top: 0;
+    }
+    .material-icons-outlined{
+      font-size: 22px!important;
+      margin-top: 3px;
+    }
+    .material-icons{
+      font-size: 27px!important;
+    }
+
+    button {
+      padding-right: 0;
+      padding-top: 0;
+    }
+
+    button.delete-btn {
+      margin-right: 30px;
+    }
+  }
+
+  .message-title{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    text-transform: capitalize;
+  }
+
+  .message-text,
+  .subject-select {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    resize: none;
+    color: #1F2432;
+  }
+
+  .inactive-select,
+  .message-text::placeholder {
+    color: #80949D;
+  }
+}
+
+.view-message-modal .modal-dialog .modal-content {
+  padding: 1em;
+}
+
+.view-message-modal .modal-dialog {
+  margin: 0;
+}
+
+.message-text {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 10px;
+
+  color: #1F2432!important;
+}
+
+.message-title{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 36px;
+  color: #1F2432;
+}
+
+.inactive-text{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 15px;
+
+  color: #80949D;
+}
+
+.message-sender{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #1F2432;
+}
+
+.attachments-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .attachment-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    border-radius: 6px;
+    border: 1px solid #d0dce2;
+    padding: .3em;
+    padding-left: 0.7em;
+
+    .attachment-icon {
+      font-size: 20px!important;
+      padding-right: 0.4em;
+      color: $ushg-dark-red;
+    }
+
+    .attachment-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      align-items: start;
+
+      a {
+        color: $ushg-grey-darkest;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+      span {
+        color: $ushg-grey;
+
+      }
+    }
+
+  }
+  .attachment-box:nth-child(2n) {
+    margin-left: 18px;
+  }
+}

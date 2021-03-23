@@ -1,0 +1,96 @@
+<div class="d-flex flex-column align-items-center text-center h-100">
+  <div class="d-flex flex-column w-100">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div
+        class="button-bar"
+        style="display: flex; justify-content: space-between; align-items: start;"
+      >
+        <button
+          class="btn btn-small mb-1 p-0 text-uppercase"
+          type="button"
+          (click)="onClose()"
+        >
+          <span class="material-icons">close</span>
+        </button>
+
+        <div style="message-action-container">
+          <button
+            class="btn btn-small pr-7"
+            (click)="attachFileComponent.open()"
+            type="button"
+          >
+            <span class="material-icons">attachment</span>
+          </button>
+
+          <button class="btn btn-small" type="submit">
+            <span
+              class="material-icons-outlined submit-icon-inactive"
+              [ngClass]="{
+                'submit-icon-active': !form.get('subject')?.errors?.required
+              }"
+            >
+              send
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="message-content">
+        <h1 class="mb-4 text-left message-title" style="color: #1f2432">
+          New Message
+        </h1>
+
+        <div class="form-group">
+          <div class="select-container">
+            <select
+              #subject
+              class="subject-select ushg-select form-control p-0"
+              placeholder="Select subject..."
+              formControlName="subject"
+              required
+              [ngClass]="{ error: form.get('subject')?.errors?.required && form.get('body').touched, 'inactive-select': form.get('body').touched}"
+            >
+              <option class="inactive-option" value="">Select a subject (required)</option>
+              <option
+                *ngFor="let s of messagesAppService.subjects$ | async"
+                [value]="s"
+              >
+                {{ s }}
+              </option>
+            </select>
+          </div>
+
+          <div class="files">
+            <div
+              *ngFor="let file of this.attachments; index as i"
+              class="file-row"
+            >
+              <div>
+                <i class="far fa-file file-icon"></i>
+                {{ file.name }}
+              </div>
+              <div>
+                <small class="pr-2">{{ file.size | filesize }}</small>
+                <i class="fa fa-times" (click)="removeFile(i)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            class="message-input form-control p-0"
+            rows="20"
+            placeholder="Compose email"
+            formControlName="body"
+            style="border: none"
+          ></textarea>
+        </div>
+
+        <app-attach-file
+          [parentForm]="form"
+          (onAttachmentsChanged)="onAttachmentsChanged()"
+        ></app-attach-file>
+      </div>
+    </form>
+  </div>
+</div>

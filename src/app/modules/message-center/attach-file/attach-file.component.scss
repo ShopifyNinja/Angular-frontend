@@ -1,0 +1,67 @@
+.attach-dialog {
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  background-color: #F2F5F7;
+  left: 0;
+
+  .dialog-content {
+    display:flex;
+    justify-content:space-between;
+    margin-right: 1em;
+
+    .attach-button-tile {
+      background-color: #80949D;
+      height: 5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 87px;
+
+      span.material-icons-outlined {
+        color: white;
+        font-size: 26px!important;
+      }
+    }
+
+    .attach-col{
+      /*flex: 1 1 1px;*/
+      //height: 5em;
+      padding:1em;
+    }
+
+    .tile-title{
+      padding-bottom: 0.5em;
+      color: black;
+      align-self: start;
+      align-items: center;
+      display: flex;
+
+      span.material-icons {
+        color: #80949D;
+        font-size: 14px!important;
+      }
+    }
+  }
+  .dialog-header{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 2em;
+
+    span.material-icons{
+      font-size: 20px!important;
+    }
+
+    h3 {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+
+      color: #1F2432;
+      text-transform: none;
+    }
+  }
+}

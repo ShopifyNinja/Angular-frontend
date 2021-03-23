@@ -1,0 +1,54 @@
+<!--begin::Logo-->
+<!-- <a routerLink="/" class="logo-link">
+	<img alt="Logo" [attr.src]="headerLogo" />
+</a> -->
+<!-- <app-logo class="small"></app-logo> -->
+&nbsp;
+<!--end::Logo-->
+
+<!--begin::Toolbar-->
+<div class="header-mobile align-items-center w-100">
+	<ng-container *ngIf="asideSelfDisplay">
+      <div class="header-logo">
+        <a routerLink="/">
+          <img alt="Logo" [attr.src]="headerLogo" id="header-logo" />
+        </a>
+      </div>
+
+      <div id="spacer"></div>
+
+  		<!--begin::Aside Mobile Toggle-->
+      <div>
+        <button
+          class="btn btn-icon btn-clean btn-lg mr-3"
+          *ngIf="this.authService.currentUserSubject | async"
+          routerLink="/message-center/inbox"
+        >
+
+          <span class="material-icons header-icon">mail_outline</span>
+          <span class="new-messages-indicator" *ngIf="notificationCount > 0">{{ notificationCount>9?'9+':notificationCount }}</span>
+        </button>
+
+    		<button
+          class="btn p-0 burger-icon-left mt-2"
+          *ngIf="this.authService.currentUserSubject | async"
+          (click)="openSettingsModal()"
+        >
+    			<span class="material-icons header-icon">menu</span>
+          <span
+            class="material-icons no-password-indicator"
+            *ngIf="!this.authService.userHasPassword()"
+          >
+            error
+          </span>
+    		</button>
+      </div>
+	</ng-container>
+
+	<!--begin::Topbar Mobile Toggle-->
+	<!-- <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
+		<span [inlineSVG]="'./assets/media/svg/icons/General/User.svg'" cacheSVG="true" class="svg-icon svg-icon-xl"></span>
+	</button> -->
+	<!--end::Topbar Mobile Toggle-->
+</div>
+<!--end::Toolbar-->

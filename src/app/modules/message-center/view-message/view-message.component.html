@@ -1,0 +1,99 @@
+<div class="d-flex flex-column align-items-center text-center h-100">
+  <div class="d-flex flex-column w-100">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="pr-0">
+      <div
+        class="button-bar"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+        "
+      >
+        <button
+          class="btn btn-small pl-0 pr-3 pb-3"
+          type="button"
+          (click)="onClose()"
+        >
+          <span class="material-icons" style="margin-left: -6px"
+            >chevron_left</span
+          >
+        </button>
+
+        <div style="align-items: start; display: flex">
+          <button
+            class="btn btn-small pl-4 pb-3 delete-btn"
+            (click)="onDeleteClicked()"
+            type="button"
+          >
+            <span class="material-icons-outlined">delete</span>
+          </button>
+
+          <button
+            class="btn btn-small pl-0 pb-3"
+            type="submit"
+            (click)="openReplyMessageModal()"
+          >
+            <span class="material-icons-outlined"> reply </span>
+          </button>
+        </div>
+      </div>
+      <h3 class="message-title text-left mb-3">{{ this.message.subject }}</h3>
+      <div
+        class="mb-4 text-left"
+        style="display: flex; justify-content: space-between"
+      >
+        <span class="mb-0 message-sender">
+          {{ this.message.senderName }}
+        </span>
+        <small class="inactive-text">
+          {{ message.createdOn | date: "hh:mm a" }}
+        </small>
+      </div>
+      <div
+        class="attachments-container mb-5"
+        *ngIf="message.attachments.length > 0"
+      >
+        <div
+          *ngFor="let item of message.attachments; index as i"
+          class="attachment-box"
+        >
+          <span class="attachment-icon material-icons">description</span>
+          <div class="attachment-content">
+            <a download href="{{ item.url }}" target="_blank">{{
+              item.fileName
+            }}</a>
+            <span>x.x MB</span>
+          </div>
+        </div>
+        <span></span>
+      </div>
+
+      <hr class="my-0" style="margin-left: -15px; margin-right: -15px;" />
+
+      <div
+        class="message-text form-group text-left px-5 mb-20"
+        *ngIf="this.message.body"
+      >
+        {{ this.message.body }}
+      </div>
+
+      <div
+        class="inactive-text text-left px-5"
+        style="margin-left: -15px; margin-right: -15px"
+        *ngFor="let m of message.parentMessages; index as i"
+      >
+        <hr *ngIf="i > 0 || this.message.body" style="margin-left: -15px; margin-right: -15px;" />
+        <div>
+          On {{ m.createdOn | date: "mediumDate" }} at
+          {{ m.createdOn | date: "shortTime" }}, {{ m.senderName }} wrote:
+        </div>
+        <div>{{ m.body }}</div>
+        <div *ngIf="m.attachments.length > 0">Attachments:</div>
+        <div *ngFor="let file of m.attachments; index as i">
+          <div><{{ file.fileName }}></div>
+          <br />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

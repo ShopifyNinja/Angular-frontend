@@ -1,0 +1,76 @@
+<!--begin::Brand-->
+<div class="brand flex-column-auto" id="kt_brand" [ngClass]="brandClasses">
+  <!--begin::Logo-->
+  <app-logo class="big"></app-logo>
+  <!--end::Logo-->
+
+  <ng-container *ngIf="asideSelfMinimizeToggle">
+    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+      <span [inlineSVG]="
+          './assets/media/svg/icons/Navigation/Angle-double-left.svg'
+        " cacheSVG="true" class="svg-icon svg-icon-xl"></span>
+    </button>
+  </ng-container>
+</div>
+<!--end::Brand-->
+
+<!--begin::Aside Menu-->
+<div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+  <ng-container *ngIf="disableAsideSelfDisplay">
+    <!--begin::Header Logo-->
+    <a routerLink="/">
+      <img alt="Logo" [attr.src]="headerLogo" />
+    </a>
+    <!--end::Header Logo-->
+  </ng-container>
+  <!--begin::Menu Container-->
+  <div id="kt_aside_menu" class="aside-menu" [ngClass]="asideMenuCSSClasses" data-menu-vertical="1"
+    [attr.data-menu-scroll]="asideMenuScroll" [attr.data-menu-dropdown]="asideMenuDropdown"
+    data-menu-dropdown-timeout="500">
+    <!-- begin::Menu Nav -->
+    <ul class="menu-nav" [ngClass]="ulCSSClasses">
+      <!-- begin::1 Level -->
+      <!-- <li class="menu-item" aria-haspopup="true" routerLinkActive="menu-item-active">
+        <a class="menu-link" routerLink="/dashboard" routerLinkActive="active">
+          <span [inlineSVG]="'./assets/media/svg/icons/Design/Layers.svg'" cacheSVG="true"
+            class="svg-icon menu-icon"></span>
+          <span class="menu-text" translate="MENU.DASHBOARD"></span>
+        </a>
+      </li> -->
+
+      <li class="menu-item" aria-haspopup="true" routerLinkActive="menu-item-active">
+        <a class="menu-link" routerLink="/quote" routerLinkActive="active">
+          <span class="menu-text">Landing</span>
+        </a>
+      </li>
+
+      <li class="menu-item" aria-haspopup="true" routerLinkActive="menu-item-active"
+        *ngIf="this.authService.currentUserSubject | async">
+        <a class="menu-link" routerLink="/message-center/inbox" routerLinkActive="active">
+          <span class="menu-text">Message Center</span>
+        </a>
+      </li>
+
+      <!--
+        Login and logout are just quick links for early development, there are going to be placed
+        somewhere else
+      -->
+      <li *ngIf="!(this.authService.currentUserSubject | async)" class="menu-item" aria-haspopup="true" routerLinkActive="menu-item-active">
+        <a class="menu-link" [href]="this.authService.getLoginUrl()">
+          <span class="menu-text">Login</span>
+        </a>
+      </li>
+
+      <li *ngIf="!!(this.authService.currentUserSubject | async)" class="menu-item" aria-haspopup="true">
+        <a class="menu-link" (click)="logout()">
+          <span class="menu-text">Logout</span>
+        </a>
+      </li>
+
+      <!-- end::1 Level -->
+    </ul>
+    <!-- end::Menu Nav -->
+  </div>
+  <!--end::Menu Container-->
+</div>
+<!--end::Aside Menu-->

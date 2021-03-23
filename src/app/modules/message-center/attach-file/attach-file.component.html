@@ -1,0 +1,40 @@
+<div class="attach-dialog" #attachFileComponent [ngClass]="display?'':'d-none'">
+  <div class="dialog-header">
+    <h3>Attach up to 5 files</h3>
+    <button class="btn btn-small mb-1 p-0 text-uppercase" type="button" (click)="close()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <div class="dialog-content">
+    <div class="attach-col">
+      <div class="tile-title">Attachments <span class="material-icons">chevron_right</span></div>
+      <div class="attach-button-tile" (click)="onAttachClick($event)">
+        <span class="material-icons-outlined">folder</span>
+      </div>
+      <div class="form-group" [formGroup]="parentForm">
+        <input
+          #fileInput
+          formControlName="files"
+          name="files"
+          id="file"
+          type="file"
+          multiple
+          class="form-control d-none"
+          (change)="onFileChange($event)"
+        />
+      </div>
+    </div>
+    <div class="attach-col">
+      <div class="tile-title">Photos <span class="material-icons">chevron_right</span></div>
+      <div class="attach-button-tile">
+        <span class="material-icons-outlined">crop_original</span>
+      </div>
+    </div>
+    <div class="attach-col">
+      <div class="tile-title">Camera <span class="material-icons">chevron_right</span></div>
+      <div class="attach-button-tile">
+        <span class="material-icons-outlined">photo_camera</span>
+      </div>
+    </div>
+  </div>
+</div>

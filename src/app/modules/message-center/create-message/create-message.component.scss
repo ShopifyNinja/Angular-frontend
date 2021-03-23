@@ -1,0 +1,135 @@
+@import '/src/assets/sass/ushg-global';
+
+:host {
+  position: relative;
+}
+
+.create-message-modal .modal-dialog .modal-content{
+  margin: 0!important;
+  padding: 0!important;
+}
+
+.create-message-modal,
+.create-message-modal .modal-dialog,
+.create-message-modal .modal-dialog .modal-content {
+  min-height: 100vh;
+  width: 100%;
+
+  .button-bar{
+    margin-left: 1em;
+    margin-right: 1em;
+
+    .material-icons,
+    .material-icons-outlined{
+      color: rgba(0, 34, 80, 0.7);
+      padding-top: 0;
+    }
+    .material-icons-outlined{
+      font-size: 22px!important;
+      margin-top: 3px;
+    }
+    .material-icons{
+      font-size: 27px!important;
+    }
+
+    button{
+      padding-right: 0;
+      padding-top: 0;
+    }
+
+    .submit-icon-inactive{
+      color: #BDBDBD;
+    }
+  }
+  .message-title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .message-input,
+  .subject-select {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    resize: none;
+    color: #1F2432;
+  }
+
+  .inactive-select,
+  .message-input::placeholder {
+    color: #80949D;
+  }
+
+  .submit-icon-active {
+    color: $ushg-royal-blue !important;
+  }
+
+  .message-input {
+    margin-left: 1em;
+    margin-right: 1em;
+    width: 94vw;
+    max-width: 94%;
+  }
+}
+
+.message-action-container{
+  align-items: start;
+  display: flex;
+  .btn {
+    padding-bottom: 0;
+  }
+}
+
+.create-message-modal .modal-dialog .modal-content {
+  padding: 1em;
+}
+
+.create-message-modal .modal-dialog {
+  margin: 0;
+}
+
+.select-container{
+  border-bottom: 1px solid #d0dce2;
+  border-radius: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+select.ushg-select {
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  color: $ushg-dark-grey;
+}
+
+.file-row {
+  padding: 1em;
+  border-bottom: 1px solid #d0dce2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-icon {
+  color: $ushg-red;
+}
+
+.submit-icon {
+  color: #bdbdbd;
+}
+
+.error {
+  color: $ushg-red!important;
+}

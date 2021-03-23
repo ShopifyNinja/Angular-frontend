@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-end align-items-center mt-3">
+  <label class="text-secondary mb-0 mr-3">Page {{ (filters$ | async)?.page }} of {{ totalPages$ | async }}</label>
+  <ul class="pagination mb-0">
+    <li class="page-item" [ngClass]="{ disabled: !hasPrevPage() }">
+      <button aria-label="Previous" class="page-link" (click)="onPrevPage()">
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/Navigation/Angle-left.svg'"
+          cacheSVG="true"
+          class="svg-icon svg-icon-xl svg-icon-primary"
+        ></span>
+      </button>
+    </li>
+    <li class="page-item" [ngClass]="{ disabled: !hasNextPage() }">
+      <button
+        aria-label="Next"
+        class="page-link"
+        [disabled]="!hasNextPage()"
+        (click)="onNextPage()"
+      >
+        <span
+          [inlineSVG]="'./assets/media/svg/icons/Navigation/Angle-right.svg'"
+          cacheSVG="true"
+          class="svg-icon svg-icon-xl svg-icon-primary"
+        ></span>
+      </button>
+    </li>
+  </ul>
+</div>

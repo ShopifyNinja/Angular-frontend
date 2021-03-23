@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+app-inbox-item {
+  margin-bottom: -1px;
+}
+
+.search-fullscreen {
+  .search-background {
+    background-color: white;
+    width: 110vw;
+    height: 110vh;
+    position: absolute;
+    top: -5em;
+    left: -1em;
+    margin: 0 auto;
+    z-index: 99;
+  }
+
+  .search-bar,
+  .search-bar i,
+  .search-bar input {
+    z-index: 100;
+    position: absolute;
+    top: -1em;
+    width: 90vw;
+    height: 3em;
+  }
+}
+
+.no-messages-container{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+
+  i.no-messages{
+    text-align: left;
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #80949D
+  }
+}

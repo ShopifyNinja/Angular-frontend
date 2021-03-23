@@ -1,0 +1,45 @@
+@use "sass:map";
+
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+$font-size-base: 1rem;
+
+// bldr red color
+$primary:       							#002250; // Bootstrap variable
+$primary-hover:    					  #013883; // Custom variable
+$primary-light:    						  lighten($primary, 4%);
+$primary-inverse:  						  #FFF;  // Custom variable
+
+$danger:       							#DB0037; // Bootstrap variable
+$danger-hover:    					  #C60032; // Custom variable
+$danger-light:    						lighten($danger, 4%);
+$danger-inverse:  						#FFF;  // Custom variable
+
+$secondary:     									#E4E6EF; // Bootstrap variable
+$secondary-hover:  									darken($secondary, 4%); // Custom variable
+$secondary-light:  									#EBEDF3; // Custom variable
+$secondary-inverse:									#181C32;
+
+// Theme colors
+// Override primary color variants
+
+// Font family
+$h1-font-size:                                      $font-size-base * 2.15;   // 28px
+$h2-font-size:                                      $font-size-base * 1.23;   // 16px
+$h3-font-size:                                      $font-size-base * 1.076;  // 14px
+
+$headings-color:                                    $primary !default;
+
+// Buttons
+$btn-padding-y:                                     15px;
+$btn-padding-x:                                     15px;
+$btn-font-size:                                     1.076rem;  // 14px
+$btn-font-weight:             						          bold;
+
+// Page Background Color
+$page-bg:	 										#FFF;
+$content-padding: 16px;

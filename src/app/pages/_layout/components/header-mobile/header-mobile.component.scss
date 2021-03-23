@@ -1,0 +1,56 @@
+@import '/src/assets/sass/ushg-global';
+
+.header-mobile{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+  padding-top: 1em;
+}
+
+
+:host {
+  box-shadow: none!important;
+}
+
+.logo-link {
+  width: 90px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.header-logo a img{
+  width: 123px;
+}
+
+.header-icon.material-icons{
+  color: #424B5A;
+  font-size: 28px!important;
+}
+
+.new-messages-indicator{
+  padding-left: 1px;
+  height: 21px;
+  background-color: #DB0037;
+  min-width: 21px;
+  border-radius: 90%;
+  font-family: Open Sans;
+  font-size: 11px;
+  color: white;
+  border: 2px solid white;
+  position: relative;
+  top: -8px;
+  left: -10px;
+}
+
+.no-password-indicator{
+  font-size: 21px !important;
+  color: #DB0037;
+  background-color: white;
+  border-radius: 90%;
+  font-size: 8px;
+  position: relative;
+  top: -11px;
+  margin-left: -11px;
+}

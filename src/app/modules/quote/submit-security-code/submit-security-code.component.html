@@ -1,0 +1,36 @@
+<div class="transparent-card">
+  <div class="d-flex flex-column align-items-center text-left h-100">
+    <div class="py-0 px-10 d-flex flex-column">
+      <h1 class="ushg-title mb-9">
+        Please enter your security code
+      </h1>
+
+	  <h3 class="mb-10 ushg-secondary">
+		  You should have received a security code through text messaging. If not, please try requesting another code.
+	  </h3>
+    <form [formGroup]="form" class="w-100" (ngSubmit)="onSubmit()">
+      <div class="pb-15 w-100">
+        <input
+          type="text"
+          class="form-control"
+          id="security-code-input"
+          placeholder="Security Code"
+          formControlName="securityCode"
+        />
+      </div>
+
+	  <button
+        class="btn ushg-primary-btn btn-block-xs-only mb-6 text-uppercase"
+        type="submit"
+      >
+        Submit
+      </button>
+	     <button
+          class="btn ushg-secondary-btn btn-block-xs-only mb-6 text-uppercase"
+        >
+        Request another security code
+      </button>
+      </form>
+    </div>
+  </div>
+</div>

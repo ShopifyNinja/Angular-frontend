@@ -1,0 +1,31 @@
+<div class="transparent-card px-5">
+  <div class="d-flex flex-column align-items-center text-left h-100 px-5">
+    <div class="d-flex flex-column">
+      <h1 class="ushg-title">
+        Innovative Health Coverage tailored to your individual needs
+      </h1>
+
+      <p class="mb-6 ushg-secondary">
+        Get a personalized health coverage quote today! Let’s get started.
+      </p>
+
+      <button
+        class="btn ushg-primary-btn btn-block-xs-only mb-3"
+        routerLink="/quote/connect"
+      >
+        Get a quote!
+      </button>
+
+      <hr class="ushg-hr mb-9"/>
+
+      <a
+        class="btn ushg-secondary-btn btn-block-xs-only mb-6 text-uppercase"
+        [href]="this.authService.getLoginUrl()"
+      >
+        Login
+      </a>
+    </div>
+
+    <img class="landing-bg mt-auto" src="./assets/media/bg/quote-bg.png" alt="" />
+  </div>
+</div>

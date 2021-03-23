@@ -1,0 +1,53 @@
+@import '/src/assets/sass/base/functions';
+@import '/src/assets/sass/base/mixins';
+@import '/src/assets/sass/components/variables.demo';
+
+:host {
+  position: relative;
+  display: block;
+}
+
+.card {
+  padding: 0.65rem 1rem;
+}
+
+.form-check {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  /* left: 2.25rem; */
+  /* transform: translateX(-50%); */
+  z-index: 9;
+
+  [type="checkbox"] {
+    margin: 0;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    border: 1px solid #EBEDF3;
+    margin-right: 1rem;
+
+    &:checked {
+      background-color: $primary;
+    }
+    &:focus {
+      outline:0;
+    }
+  }
+}
+
+label {
+  margin: 0;
+}
+
+.delete-action {
+  opacity: 0.3;
+
+  &.active-action {
+    opacity: 1;
+  }
+}

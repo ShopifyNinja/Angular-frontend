@@ -1,0 +1,133 @@
+$ushg-dark-red: #B30B00;
+$ushg-red: #DB0037;
+$ushg-dark-blue: #002250;
+$ushg-dark-grey-dark: #80949D;
+$ushg-dark-grey: #80949D;
+$ushg-grey: #AEC0CB;
+$ushg-grey-darkest: #1F2432;
+$ushg-grey-light: #D0DCE2;
+$ushg-royal-blue: rgba(8, 94, 210, 0.9);
+
+h1, h2, h3, h4, h5, li, p {
+  font-family: Open Sans;
+}
+
+h1, .ushg-title{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  color: $ushg-dark-blue;
+
+}
+
+h3 {
+  color: #828282;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.ushg-secondary{
+  font-family:  Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: $ushg-dark-grey-dark;
+}
+
+.ushg-primary-btn {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: white;
+  background: #1F2432;
+}
+
+.ushg-secondary-btn {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #424B5A;
+  background: white;
+  border: 1px solid #424B5A;
+}
+
+.ushg-hr{
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;
+  background-color: #BECFDA;
+  height: 1px;
+}
+
+.ushg-circle-check {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* left: 2.25rem; */
+  /* transform: translateX(-50%); */
+  z-index: 9;
+
+  [type="checkbox"] {
+    margin: 0;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    border: 1px solid $ushg-dark-grey-dark;
+    margin-right: 1rem;
+
+    &:checked {
+      background-color: $ushg-dark-grey-dark;
+      border: 1px solid white;
+    }
+    &:focus {
+      outline:0;
+    }
+  }
+}
+
+.ushg-p{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #002250;
+}
+
+.ushg-icon-input{
+  border: 1px solid #AEC0CB;
+  box-sizing: border-box;
+  border-radius: 3px;
+  input {
+    border:none;
+    -webkit-autofill {
+      background-color: white !important;
+    }
+  }
+  .input-group-text{
+    border: none;
+    background-color: white;
+  }
+  .input-group-append{
+    margin: 0;
+  }
+}

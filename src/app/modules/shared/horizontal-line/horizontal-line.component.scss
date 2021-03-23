@@ -1,0 +1,10 @@
+@import '../../../../assets/sass/components/variables.bootstrap';
+
+:host {
+  width: 100%;
+  display: block;
+}
+
+hr {
+  border-color: $secondary;
+}

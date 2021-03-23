@@ -1,0 +1,32 @@
+<div class="" [class]="(message.haveRead ? '': 'message-unread') + ' ' + (showSelect?'show-select':'')">
+  <div class="form-check h-100 d-flex align-items-center">
+    <input
+      class="form-check-input fa fa-check"
+      type="checkbox"
+      value="true"
+      id="inbox-item-checkbox-{{ message.id }}"
+      (change)="onMessageSelect($event)"
+      [checked]="selected"
+      [style.display]="showSelect ? 'block' : 'none'"
+    />
+    <label for="inbox-item-checkbox-{{ message.id }}"></label>
+  </div>
+
+  <div class="card text-left d-flex pt-3 px-5 pb-5" (click)="openViewMessageModal()">
+    <div class="message-row">
+      <h1 class="mb-0 message-title">
+        {{ message.senderName }}
+      </h1>
+      <span class="message-icon material-icons" *ngIf="message.attachments.length!==0">attachment</span>
+    </div>
+    <div class="message-row">
+        <small class="message-subject">{{ message.subject }}</small>
+        <small class="message-date">
+          {{ formattedDate  }}
+        </small>
+    </div>
+    <div class="message-row">
+      <span class="message-body">{{ message.body }}</span>
+    </div>
+  </div>
+</div>
