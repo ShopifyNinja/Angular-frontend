@@ -8,7 +8,7 @@ import {ForgotUsernameComponent} from './forgot-username/forgot-username.compone
 
 //import {RegistrationComponent} from './registration/registration.component';
 //import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
-//import {LogoutComponent} from './logout/logout.component';
+// import {LogoutComponent} from './logout/logout.component';
 
 const routes: Routes = [
   {

@@ -2,4 +2,54 @@
   button {
     min-width: 30em;
   }
+  .transparent-card {
+    text-align: center;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid #D0DCE2;
+    .logo-image {
+      width: 123px;
+    }
+    .sign-btn {
+      min-width: unset;
+      width: 100%;
+      font-size: 18px;
+      padding: 11px;
+      margin-top: 40px;
+    }
+   .heading-text {
+    font-size: 24px;
+    color: rgba(0, 34, 80, 0.7);
+    font-weight: 600;
+   }
+   .sub-head p {
+    font-size: 14px;
+    color: #333;
+    margin: 26px 0 40px;
+   }
+   input {
+    border: none;
+    border-bottom: 1px solid rgba(208, 220, 226, 0.6);
+    border-radius: 0px;
+    font-size: 18px;
+   }
+   .form-group {
+     margin-bottom: 0px;
+   }
+   #forgotPassword {
+    color: rgba(8, 94, 210, 0.9);
+    width: 100%;
+   }
+  }
+  #create-account, #forgotPassword {
+    color: rgba(8, 94, 210, 0.9);
+    margin: 0 auto;
+    display: block;
+    width: 350px;
+    margin-top: 15px;
+  }
+  .required-message {
+    text-align: left;
+  }
 }

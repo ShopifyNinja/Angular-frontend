@@ -53,11 +53,13 @@ export class AuthService implements OnDestroy {
     let redirectUrl = window.location.protocol + '//' + window.location.host + '/auth/external';
     console.log(redirectUrl);
     
-    let b2cUrl = 'https://ushealthuat.b2clogin.com/ushealthuat.onmicrosoft.com/oauth2/v2.0/authorize?' +
-                  'p=B2C_1A_signup_signin&client_id=7e6d76b2-dcd7-44f1-9a99-f7bb84baa5b7&nonce=defaultNonce&redirect_uri=' +
-                  encodeURIComponent(redirectUrl) + '&scope=openid&response_type=id_token&prompt=login'
+    // let b2cUrl = 'https://ushealthuat.b2clogin.com/ushealthuat.onmicrosoft.com/oauth2/v2.0/authorize?' +
+    //               'p=B2C_1A_signup_signin&client_id=7e6d76b2-dcd7-44f1-9a99-f7bb84baa5b7&nonce=defaultNonce&redirect_uri=' +
+    //               encodeURIComponent(redirectUrl) + '&scope=openid&response_type=id_token&prompt=login'
 
-    return b2cUrl;
+    // return b2cUrl;
+    let loginUrl = '/auth/login';
+    return loginUrl;
   }
 
   login(username: string, password: string): Observable<UserModel> {
