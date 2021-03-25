@@ -16,8 +16,8 @@ export class AuthHTTPService {
 
   // public methods
   login(username: string, password: string): Observable<any> {
-    console.log(username);
-    console.log(password);
+    // console.log(username);
+    // console.log(password);
     return this.http.post<AuthModel>(API_LOGIN_URL, { username, password });
   }
 

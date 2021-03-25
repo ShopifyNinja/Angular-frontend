@@ -56,7 +56,6 @@ export class AuthService implements OnDestroy {
     // let b2cUrl = 'https://ushealthuat.b2clogin.com/ushealthuat.onmicrosoft.com/oauth2/v2.0/authorize?' +
     //               'p=B2C_1A_signup_signin&client_id=7e6d76b2-dcd7-44f1-9a99-f7bb84baa5b7&nonce=defaultNonce&redirect_uri=' +
     //               encodeURIComponent(redirectUrl) + '&scope=openid&response_type=id_token&prompt=login'
-
     // return b2cUrl;
     let loginUrl = '/auth/login';
     return loginUrl;
@@ -67,7 +66,8 @@ export class AuthService implements OnDestroy {
     return this.authHttpService.login(username, password).pipe(
       map((auth: AuthModel) => {
         const result = this.setAuthFromLocalStorage(auth);
-        console.log(result);
+        // console.log(result);
+        // console.log("kjh");
         return result;
       }),
       switchMap(() => this.getUserByToken()),
