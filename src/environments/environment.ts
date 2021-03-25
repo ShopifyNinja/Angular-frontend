@@ -7,7 +7,7 @@ export const environment = {
   appVersion: 'v717demo1',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: false,
-  apiUrl: 'http://localhost:4200/api',
+  apiUrl: 'https://ushealth.azurewebsites.net/v1.0',
   appInsights: {
     instrumentationKey: '1192f7c3-1754-4b89-b80f-18668e4012bc'
   }

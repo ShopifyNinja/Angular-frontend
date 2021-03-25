@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
+  fieldTextType = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,5 +39,9 @@ export class LoginComponent implements OnInit {
     }
     this.loading = true;
     this.authService.login(this.f.username.value, this.f.password.value);
+  }
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }
